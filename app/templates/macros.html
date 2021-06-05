@@ -1,0 +1,7 @@
+{%macro displaySources(sources_list)%}
+
+    {% for source in sources_list %}
+        <p class="source mx-2">{{ source.src_name }}</p>
+    {%endfor%}
+
+{%endmacro%}
