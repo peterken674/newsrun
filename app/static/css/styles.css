@@ -28,7 +28,7 @@
     color: var(--blue);
 }
 .source{
-    background-color: rgba(38, 188, 252, 0.1);
+    background-color: rgba(38, 188, 252, 0.08);
     color: #00aaf3;
     width: fit-content;
     padding-left: 1.5rem;

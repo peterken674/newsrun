@@ -1,4 +1,5 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
 
 <!-- Styles block -->
 {% block styles %}
@@ -11,20 +12,8 @@
     <div class="container sources">
         <h2 class="my-4">Sources</h2>
         <div class="source-list">
-            <p class="source mx-2">Business Daily</p>
-            <p class="source mx-2">Business Daily</p>
-            <p class="source mx-2">Business Daily</p>
-            <p class="source mx-2">Business Daily</p>
-            <p class="source mx-2">Business Daily</p>
-            <p class="source mx-2">Business Daily</p>
-            <p class="source mx-2">Business Daily</p>
-            <p class="source mx-2">Business Daily</p>
-            <p class="source mx-2">Business Daily</p>
-            <p class="source mx-2">Business Daily</p>
-            <p class="source mx-2">Business Daily</p>
-            <p class="source mx-2">Business Daily</p>
-            <p class="source mx-2">Business Daily</p>
-            <p class="source mx-2">Business Daily</p>
+            <!-- <p class="source mx-2">Business Daily</p> -->
+            {{ macro.displaySources(sources) }}
         </div>
     </div>
 {%endblock%}
