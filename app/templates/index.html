@@ -9,11 +9,54 @@
 {% endblock %}
 
 {%block content%}
-    <div class="container sources">
-        <h2 class="my-4">Sources</h2>
+    <div class="container sources mt-4">
+        <h5 class="my-3 category">| GENERAL</h5>
+        <hr>
         <div class="source-list">
-            <!-- <p class="source mx-2">Business Daily</p> -->
-            {{ macro.displaySources(sources) }}
+            {{ macro.displaySources(general) }}
+            <hr>
+        </div>
+
+        <h5 class="my-3 category">| TECHNOLOGY</h5>
+        <hr>
+        <div class="source-list">
+            {{ macro.displaySources(technology) }}
+            <hr>
+        </div>
+
+        <h5 class="my-3 category">| SPORTS</h5>
+        <hr>
+        <div class="source-list">
+            {{ macro.displaySources(sports) }}
+            <hr>
+        </div>
+
+        <h5 class="my-3 category">| ENTERTAINMENT</h5>
+        <hr>
+        <div class="source-list">
+            {{ macro.displaySources(entertainment) }}
+            <hr>
+        </div>
+
+        <h5 class="my-3 category">| BUSINESS</h5>
+        <hr>
+        <div class="source-list">
+            {{ macro.displaySources(business) }}
+            <hr>
+        </div>
+
+        <h5 class="my-3 category">| SCIENCE</h5>
+        <hr>
+        <div class="source-list">
+            {{ macro.displaySources(science) }}
+            <hr>
+        </div>
+
+        <h5 class="my-3 category">| HEALTH</h5>
+        <hr>
+        <div class="source-list">
+            {{ macro.displaySources(health) }}
+            <hr>
         </div>
     </div>
 {%endblock%}

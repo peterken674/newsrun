@@ -8,5 +8,37 @@ def index():
     '''
     View root page function that returns the index page and its data
     '''
+    sports = []
+    business = []
+    entertainment = []
+    general = []
+    health = []
+    science = []
+    technology = []
     sources = get_sources()
-    return render_template('index.html', sources = sources)
+    for source in sources:
+        if source.src_category == 'sports':
+            sports.append(source)
+        elif source.src_category == 'business':
+            business.append(source)
+        elif source.src_category == 'entertainment':
+            entertainment.append(source)
+        elif source.src_category == 'general':
+            general.append(source)
+        elif source.src_category == 'health':
+            health.append(source)
+        elif source.src_category == 'science':
+            science.append(source)
+        elif source.src_category == 'technology':
+            technology.append(source)
+
+
+    return render_template('index.html', 
+                                sports = sports, 
+                                business = business,
+                                entertainment = entertainment,
+                                general = general,
+                                health = health,
+                                science = science,
+                                technology = technology
+                                )
