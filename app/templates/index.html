@@ -8,7 +8,8 @@
         href="{{url_for('static', filename='css/styles.css')}}">
 {% endblock %}
 
-{%block content%}
+{%block main%}
+    {{ super() }}
     <div class="container sources mt-4">
         {% for category in categories %}
             <h5 class="my-3 category">{{category[0].src_category.upper()}}</h5>
