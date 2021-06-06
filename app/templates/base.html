@@ -3,3 +3,15 @@
 {% block navbar %}
     {% include 'header.html'%}
 {% endblock %}
+
+{%block content%}
+    {%block main%}
+
+    {%endblock%}
+
+    {% block footer %}
+        {%include 'footer.html'%}
+    {%- endblock %}
+
+{%endblock%}
+

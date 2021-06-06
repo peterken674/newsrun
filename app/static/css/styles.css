@@ -54,6 +54,17 @@
     padding-bottom: 0.5rem;
 }
 
+/* Footer */
+.footer{
+    text-align: center;
+    box-shadow: 0 0 4px grey;
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    width: 100%;
+    position: sticky;
+    bottom: 0;
+    color: grey;
+}
 
 /* Bootstrap Classes */
 .m-0 {
