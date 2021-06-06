@@ -40,6 +40,10 @@
 .sources a:hover {
     text-decoration: none;
 }
+.sources h1{
+    border-left: 4px solid var(--blue);
+    padding: 1rem 0 0 1rem;
+}
 .source{
     background-color: rgba(38, 188, 252, 0.08);
     color: #00aaf3;
