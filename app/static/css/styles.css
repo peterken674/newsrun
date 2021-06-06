@@ -26,7 +26,7 @@
 }
 .logo-type a{
     font-family: 'Alegreya', serif;
-    font-size: 6rem;
+    font-size: 6.5rem;
     color: white;
 }
 .logo-type a:hover{
@@ -86,7 +86,7 @@
 
 /* Articles */
 .card {
-    box-shadow: 0 0 3px grey;
+    box-shadow: 0 0 3px rgb(170, 170, 170);
     border-radius: 1rem;
     display: flex;
     flex-direction: row;
@@ -138,6 +138,9 @@
         min-width: 100%;
     }
 
+}
+small{
+    color: #057bdb;
 }
 /* Error Page */
 .error{
