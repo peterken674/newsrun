@@ -1,6 +1,6 @@
 from flask import render_template, request, url_for, redirect
 from . import main
-from ..requests import get_sources
+from ..requests import get_sources, get_src_articles
 
 
 @main.route('/')
@@ -34,3 +34,12 @@ def index():
     categories = [general, entertainment, business, entertainment, business, sports, health, technology, science]
 
     return render_template('index.html', categories = categories)
+
+@main.route('/articles/<source_id>')
+def source(source_id):
+    '''
+    View articles page function that returns articles from the specified sources.
+    '''
+    articles = get_src_articles(source_id)
+
+    return render_template('articles.html')
