@@ -12,13 +12,28 @@
     {{ super() }}
     <div class="container sources mt-4">
         <!-- ARTICLES -->
-        <h1>ARTICLES</h1>
-
-        <ul>
-            {% for article in articles %}
-                <li>{{article.article_title}}</li>
-
+        <h1>{{articles[0].article_src['name']}}</h1>
+        <hr>
+        <div>
+            {% for article in articles%}
+            <div class="card my-5">
+                <div class="news-image">
+                    <img src="{{article.article_image_url}}" alt="Article Image" class="img img-responsive img-fluid" loading="lazy" >
+                </div>
+                <div class="article-details m-4 mx-5">
+                    <div>
+                        <p class="article-title">
+                        <a href="{{article.article_url}}" target="_blank" rel="noopener noreferrer">{{article.article_title}}</a>
+                         <p class="article-content">{{article.article_content | truncate(200)}} <a href="{{article.article_url}}" target="_blank" rel="noopener noreferrer">read more</a> </p>
+                    </p>
+                    </div>
+                    <div class="meta">
+                        <small>{{article.published_at.strftime('%I:%M %p, %a %d, %Y')}}</small>
+                    </div>
+                   
+                </div>
+            </div>
             {%endfor%}
-        </ul>
+        </div>
     </div>
 {%endblock%}

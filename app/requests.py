@@ -1,5 +1,6 @@
 import urllib.request, json
 from .models import Article, Source
+from dateutil import parser
 
 api_key = None
 base_url = None
@@ -85,8 +86,12 @@ def process_src_articles(articles_list):
         article_url = article.get('url')
         article_image_url = article.get('urlToImage')
 
-        article_object = Article(article_src, article_author, article_title, article_description, article_content, published_at, article_url, article_image_url)
-        articles_results.append(article_object)
+        # Convert string to date object.
+        publish_date = parser.parse(published_at)
+
+        if article_image_url and article_content and article_url:
+            article_object = Article(article_src, article_author, article_title, article_description, article_content, publish_date, article_url, article_image_url)
+            articles_results.append(article_object)
 
     return articles_results
 
