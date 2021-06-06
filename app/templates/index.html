@@ -10,53 +10,13 @@
 
 {%block content%}
     <div class="container sources mt-4">
-        <h5 class="my-3 category">GENERAL</h5>
-        <hr>
-        <div class="source-list">
-            {{ macro.displaySources(general) }}
+        {% for category in categories %}
+            <h5 class="my-3 category">{{category[0].src_category.upper()}}</h5>
             <hr>
-        </div>
-
-        <h5 class="my-3 category">TECHNOLOGY</h5>
-        <hr>
-        <div class="source-list">
-            {{ macro.displaySources(technology) }}
-            <hr>
-        </div>
-
-        <h5 class="my-3 category">SPORTS</h5>
-        <hr>
-        <div class="source-list">
-            {{ macro.displaySources(sports) }}
-            <hr>
-        </div>
-
-        <h5 class="my-3 category">ENTERTAINMENT</h5>
-        <hr>
-        <div class="source-list">
-            {{ macro.displaySources(entertainment) }}
-            <hr>
-        </div>
-
-        <h5 class="my-3 category">BUSINESS</h5>
-        <hr>
-        <div class="source-list">
-            {{ macro.displaySources(business) }}
-            <hr>
-        </div>
-
-        <h5 class="my-3 category">SCIENCE</h5>
-        <hr>
-        <div class="source-list">
-            {{ macro.displaySources(science) }}
-            <hr>
-        </div>
-
-        <h5 class="my-3 category">HEALTH</h5>
-        <hr>
-        <div class="source-list">
-            {{ macro.displaySources(health) }}
-            <hr>
-        </div>
+            <div class="source-list">
+                {{ macro.displaySources(category) }}
+                <hr>
+            </div>
+        {%endfor%}
     </div>
 {%endblock%}
