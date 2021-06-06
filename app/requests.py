@@ -56,18 +56,37 @@ def get_src_articles(source):
         src_articles_data = url.read()
         src_articles_response = json.loads(src_articles_data)
 
-        article_object = None
-        if src_articles_response:
-            article_src = src_articles_response.get('source')
-            article_author = src_articles_response.get('author')
-            article_title = src_articles_response.get('title')
-            article_description = src_articles_response.get('description')
-            article_content = src_articles_response.get('content')
-            published_at = src_articles_response.get('publishedAt')
-            article_url = src_articles_response.get('url')
-            article_image_url = src_articles_response.get('urlToImage')
+        articles_results = None
 
-            article_object = Article(article_src, article_author, article_title, article_description, article_content, published_at, article_url, article_image_url)
+        if src_articles_response['articles']:
+            articles_results_list = src_articles_response['articles']
+            articles_results = process_src_articles(articles_results_list)
 
-    return article_object
+    return articles_results
+
+def process_src_articles(articles_list):
+    '''
+    Function  that processes the articles results and transforms them to a list of Objects
+
+    Args:
+        articles_list: A list of dictionaries that contain articles 
+
+    Returns :
+        articles_results: A list of article objects
+    '''
+    articles_results = []
+    for article in articles_list:
+        article_src = article.get('source')
+        article_author = article.get('author')
+        article_title = article.get('title')
+        article_description = article.get('description')
+        article_content = article.get('content')
+        published_at = article.get('publishedAt')
+        article_url = article.get('url')
+        article_image_url = article.get('urlToImage')
+
+        article_object = Article(article_src, article_author, article_title, article_description, article_content, published_at, article_url, article_image_url)
+        articles_results.append(article_object)
+
+    return articles_results
 

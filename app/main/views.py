@@ -42,4 +42,4 @@ def source(source_id):
     '''
     articles = get_src_articles(source_id)
 
-    return render_template('articles.html')
+    return render_template('articles.html', articles = articles)
