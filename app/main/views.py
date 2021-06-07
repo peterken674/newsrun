@@ -31,7 +31,7 @@ def index():
             science.append(source)
         elif source.src_category == 'technology':
             technology.append(source)
-    categories = [general, entertainment, business, entertainment, business, sports, health, technology, science]
+    categories = [general, entertainment, business, sports, health, technology, science]
 
     return render_template('index.html', categories = categories)
 
