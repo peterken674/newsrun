@@ -209,7 +209,9 @@ small{
     width: 250px;
     border-radius: auto;
     background: white;
-    color: black;
+    color: grey;
+    border-bottom: 1px solid var(--blue);
+    border-radius: 0;
 }
 
 @media screen and (max-width: 768px){
@@ -236,7 +238,7 @@ small{
     border-radius: auto;
     font-size: 1.5rem;
     background-color: white;
-    height: 40px;
+    height: 41px;
     border-radius: 20px;
     padding-left: 45px;
     padding-right: 15px;
