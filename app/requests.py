@@ -5,12 +5,14 @@ from dateutil import parser
 api_key = None
 base_url = None
 src_articles_base_url = None
+search_base_url = None
 
 def configure_src_request(app):
-    global api_key, base_url, src_articles_base_url
+    global api_key, base_url, src_articles_base_url, search_base_url
     api_key = app.config['NEWS_API_KEY']
     base_url = app.config['NEWS_SRC_API_BASE_URL']
     src_articles_base_url = app.config['ARTICLES_FROM_SRC_BASE_URL']
+    search_base_url = app.config['SEARCH_BASE_URL']
 
 
 def get_sources():
@@ -95,3 +97,16 @@ def process_src_articles(articles_list):
 
     return articles_results
 
+def search_articles(term):
+    search_url = search_base_url.format(term, api_key)
+
+    with urllib.request.urlopen(search_url) as url:
+        search_data = url.read()
+        search_response = json.loads(search_data)
+
+        search_results = None
+        if search_response['articles']:
+            articles = search_response['articles']
+            search_results = process_src_articles(articles)
+
+    return search_results

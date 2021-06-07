@@ -1,6 +1,6 @@
 from flask import render_template, request, url_for, redirect
 from . import main
-from ..requests import get_sources, get_src_articles
+from ..requests import get_sources, get_src_articles, search_articles
 
 
 @main.route('/')
@@ -33,7 +33,12 @@ def index():
             technology.append(source)
     categories = [general, entertainment, business, sports, health, technology, science]
 
-    return render_template('index.html', categories = categories)
+    search_articles = request.args.get('query')
+
+    if search_articles:
+        return redirect(url_for('main.search', term = search_articles))
+    else:
+        return render_template('index.html', categories = categories)
 
 @main.route('/articles/<source_id>')
 def source(source_id):
@@ -43,3 +48,14 @@ def source(source_id):
     articles = get_src_articles(source_id)
 
     return render_template('articles.html', articles = articles)
+
+@main.route('/search/<term>')
+def search(term):
+    '''
+    View function to display the search results
+    '''
+    terms = term.split(' ')
+    query = '+'.join(terms)
+    articles_found = search_articles(query)
+    
+    return render_template('search.html', articles = articles_found)

@@ -3,21 +3,30 @@
 
 <!-- Styles block -->
 {% block styles %}
-    {{super()}}
-    <link rel="stylesheet" 
-        href="{{url_for('static', filename='css/styles.css')}}">
+{{super()}}
+<link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
 {% endblock %}
 
 {%block main%}
-    {{ super() }}
-    <div class="container sources mt-4">
-        {% for category in categories %}
-            <h5 class="my-3 category">{{category[0].src_category.upper()}}</h5>
-            <hr>
-            <div class="source-list">
-                {{ macro.displaySources(category) }}
-                <hr>
+{{ super() }}
+<div class="container sources mt-4">
+    <div class="my-5">
+        <form class="search-container">
+            <div class="query-input">
+                <input id="search-box" type="text" class="search-box" name="query" placeholder="Search term..." />
+                <label for="search-box"><span class="glyphicon glyphicon-search search-icon"></span></label>
             </div>
-        {%endfor%}
+            <div><input type="submit" id="search-submit" value="SEARCH" /></div>
+        </form>
     </div>
+    <hr>
+    {% for category in categories %}
+    <h5 class="my-3 category">{{category[0].src_category.upper()}}</h5>
+    <hr>
+    <div class="source-list">
+        {{ macro.displaySources(category) }}
+        <hr>
+    </div>
+    {%endfor%}
+</div>
 {%endblock%}
