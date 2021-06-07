@@ -8,6 +8,8 @@ A Flask powered application where the user can:
 - See the image, description and the time a news article was created.
 - Click on an article and read the full article on the source website.
 
+The site is deployed on Heroku.
+
 ## Setup/Installation
 On your terminal, clone the project.
     
