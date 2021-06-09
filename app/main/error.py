@@ -6,4 +6,5 @@ def error_handler(error):
     '''
     Function to render the 404 error page
     '''
-    return render_template('error.html', error_msg = error),404
+    title = 'Not Found | Newsrun'
+    return render_template('error.html', error_msg = error, title=title),404

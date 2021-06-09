@@ -34,11 +34,12 @@ def index():
     categories = [general, entertainment, business, sports, health, technology, science]
 
     search_articles = request.args.get('query')
+    title = 'Home | Newsrun'
 
     if search_articles:
         return redirect(url_for('main.search', term = search_articles))
     else:
-        return render_template('index.html', categories = categories)
+        return render_template('index.html', categories = categories, title = title)
 
 @main.route('/articles/<source_id>')
 def source(source_id):
@@ -46,8 +47,9 @@ def source(source_id):
     View articles page function that returns articles from the specified sources.
     '''
     articles = get_src_articles(source_id)
+    title = articles[0].article_src['name'] + ' | Newsrun'
 
-    return render_template('articles.html', articles = articles)
+    return render_template('articles.html', articles = articles, title = title)
 
 @main.route('/search/<term>')
 def search(term):
@@ -57,5 +59,6 @@ def search(term):
     terms = term.split(' ')
     query = '+'.join(terms)
     articles_found = search_articles(query)
+    title = 'Search Results | Newsrun'
     
-    return render_template('search.html', articles = articles_found)
+    return render_template('search.html', articles = articles_found, title = title)
